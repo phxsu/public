@@ -12,18 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TiresWheelsProject.Model;
 
-namespace TiresWheelsProject
+namespace TiresWheelsProject.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ProductPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductPage : Page
     {
-        public MainWindow()
+        Core db = new Core();
+        public ProductPage()
         {
             InitializeComponent();
-            MainFrame.Navigate(new View.Pages.ProductPage());
+            ProductListView.ItemsSource = db.context.Product.ToList();
         }
     }
 }
